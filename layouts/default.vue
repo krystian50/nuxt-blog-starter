@@ -1,44 +1,19 @@
 <template>
   <div>
-    <nav
-      class="navbar header is-primary"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          Mój blog
-        </a>
-
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-    </nav>
-
+    <TheHeader />
     <nuxt />
+    <TheFooter />
   </div>
 </template>
 
 <script>
+import TheHeader from '~/components/TheHeader'
+import TheFooter from '~/components/TheFooter'
+
 export default {
-  data() {
-    return {
-      items: [
-        {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' }
-        },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
-        }
-      ]
-    }
+  components: {
+    TheHeader,
+    TheFooter
   }
 }
 </script>
