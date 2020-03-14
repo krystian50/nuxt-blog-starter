@@ -28,8 +28,6 @@
 <script>
 import Card from '~/components/homepage/Card'
 
-// remove when will be used
-// eslint-disable-next-line no-unused-vars
 const getPosts = () => {
   const posts = Array(6)
     .fill()
@@ -44,6 +42,7 @@ const getPosts = () => {
 
   return Promise.resolve(posts)
 }
+
 export default {
   name: 'HomePage',
 

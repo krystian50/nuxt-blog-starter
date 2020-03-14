@@ -22,13 +22,15 @@
     }
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
+    "markdown-it": "^10.0.0",
+    "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/dotenv": "^1.4.0"
+    "v-runtime-template": "^1.10.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
