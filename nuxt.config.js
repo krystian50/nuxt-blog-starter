@@ -23,15 +23,9 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~plugins/nuxt-quill-plugin', ssr: false }],
+  // plugins: [{ src: '~plugins/nuxt-quill.plugin', ssr: false }],
   // some nuxt config...
   css: [
-    // ...
-    'quill/dist/quill.core.css',
-    // for snow theme
-    'quill/dist/quill.snow.css',
-    // for bubble theme
-    'quill/dist/quill.bubble.css',
     '@/assets/scss/main.scss'
     // ...
   ],

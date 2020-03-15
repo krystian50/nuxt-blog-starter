@@ -2,9 +2,7 @@
 <template>
   <div>
     <div class="container is-widescreen">
-      <div class="notification">
-        <Markdown :markdown="post.markdown" />
-      </div>
+      <div class="notification"></div>
     </div>
 
     <div class="columns">
@@ -24,8 +22,6 @@
   </div>
 </template>
 <script>
-import Markdown from '~/components/Markdown'
-
 import markdownTest from '~/assets/markdowntest'
 
 const getPost = () => {
@@ -51,9 +47,6 @@ const getPost = () => {
 }
 
 export default {
-  components: {
-    Markdown
-  },
   async asyncData() {
     return {
       post: await getPost()
