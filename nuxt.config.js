@@ -21,13 +21,20 @@ module.exports = {
    */
   loading: { color: '#fff' },
   /*
-   ** Global CSS
-   */
-  css: ['@/assets/scss/main.scss'],
-  /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~plugins/nuxt-quill-plugin', ssr: false }],
+  // some nuxt config...
+  css: [
+    // ...
+    'quill/dist/quill.core.css',
+    // for snow theme
+    'quill/dist/quill.snow.css',
+    // for bubble theme
+    'quill/dist/quill.bubble.css',
+    '@/assets/scss/main.scss'
+    // ...
+  ],
   /*
    ** Nuxt.js dev-modules
    */
