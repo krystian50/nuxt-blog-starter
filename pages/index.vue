@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="hero is-primary is-large main-banner">
+    <div class="hero is-primary is-medium main-banner">
       <div class="hero-body">
         <div class="container has-text-centered">
           <h1 class="title">
@@ -28,21 +28,6 @@
 <script>
 import Card from '~/components/homepage/Card'
 
-const getPosts = () => {
-  const posts = Array(6)
-    .fill()
-    .map((el, index) => ({
-      id: `post${index}`,
-      slug: `kurs-nuxtjs-czesc-${index + 1}`,
-      desc: 'W tej części będziemy mówić o lorem ipsum dolor amit',
-      img: 'https://nuxtjs.org/logos/nuxt-icon-white.png',
-      name: `Kurs NuxtJS - część ${index + 1}`,
-      author: 'kfras'
-    }))
-
-  return Promise.resolve(posts)
-}
-
 export default {
   name: 'HomePage',
 
@@ -50,15 +35,21 @@ export default {
     Card
   },
 
-  async asyncData() {
+  async asyncData({ app }) {
+    const postsRef = app.$fireStore.collection('posts').get()
+
     return {
-      posts: await getPosts()
+      posts: (await postsRef).docs.map((doc) => doc.data())
     }
+  },
+
+  mounted() {
+    console.log(this.$fireAuth)
   }
 }
 </script>
 <style lang="scss" scoped>
 .main-banner {
-  background-image: url('https://devmeetings.org/wp-content/uploads/2020/02/MG_8649.jpg');
+  // background-image: url('https://devmeetings.org/wp-content/uploads/2020/02/MG_8649.jpg');
 }
 </style>

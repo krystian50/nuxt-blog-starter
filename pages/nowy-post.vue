@@ -2,19 +2,31 @@
   <div class="container">
     <div class="header">
       <h1 class="title">Dodaj post</h1>
-
-      <b-button class="publish-button" type="is-success" icon-left="check"
-        >Opublikuj</b-button
-      >
     </div>
-    <EditorContent />
+    <EditorForm @publish="publish" />
   </div>
 </template>
 <script>
-import EditorContent from '~/components/EditorContent'
+import EditorForm from '~/components/EditorForm'
+
 export default {
   components: {
-    EditorContent
+    EditorForm
+  },
+
+  methods: {
+    publish(raw) {
+      const newPost = {
+        ...raw,
+        slug: raw.name.toLowerCase().replace(' ', '-'),
+        id: raw.name.toLowerCase().replace(' ', '-')
+      }
+
+      this.$fireStore
+        .collection('posts')
+        .doc(newPost.id)
+        .set(newPost)
+    }
   }
 }
 </script>

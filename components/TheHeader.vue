@@ -6,6 +6,9 @@
       </b-navbar-item>
     </template>
     <template slot="start">
+      <b-navbar-item href="/">
+        Artykuły
+      </b-navbar-item>
       <b-navbar-item href="#">
         O nas
       </b-navbar-item>
@@ -14,18 +17,22 @@
       </b-navbar-item>
     </template>
 
-    <!-- <template slot="end">
+    <template slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
+          <a
+            v-if="!$store.getters['isLoggedIn']"
+            class="button is-light"
+            href="/login"
+          >
+            Zaloguj się
           </a>
-          <a class="button is-light">
-            Log in
-          </a>
+          <button v-else class="button is-light" @click="logOut()">
+            Wyloguj się
+          </button>
         </div>
       </b-navbar-item>
-    </template> -->
+    </template>
   </b-navbar>
 </template>
 <style lang="scss" scoped>
@@ -39,3 +46,14 @@
   max-height: 100%;
 }
 </style>
+<script>
+export default {
+  methods: {
+    logOut() {
+      this.$fireAuth.signOut().then(() => {
+        this.$store.commit('ON_AUTH_STATE_CHANGED_MUTATION')
+      })
+    }
+  }
+}
+</script>
