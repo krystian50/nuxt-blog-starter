@@ -1,3 +1,23 @@
+import fs from 'fs'
+import FMMode from 'frontmatter-markdown-loader/mode'
+import MarkdownIt from 'markdown-it'
+import mip from 'markdown-it-prism'
+const path = require('path')
+
+function getPaths() {
+  return fs
+    .readdirSync(path.resolve(__dirname, 'articles'))
+    .filter((filename) => path.extname(filename) === '.md')
+    .map((filename) => `${path.parse(filename).name}`)
+}
+
+const md = new MarkdownIt({
+  html: true,
+  typographer: true
+})
+
+md.use(mip)
+
 module.exports = {
   mode: 'universal',
   /*
@@ -26,7 +46,8 @@ module.exports = {
   // plugins: [{ src: '~plugins/nuxt-quill.plugin', ssr: false }],
   // some nuxt config...
   css: [
-    '@/assets/scss/main.scss'
+    '@/assets/scss/main.scss',
+    'github-markdown-css'
     // ...
   ],
   /*
@@ -82,6 +103,10 @@ module.exports = {
     ]
   ],
 
+  generate: {
+    routes: getPaths()
+  },
+
   // pwa: {
   //   // disable the modules you don't need
   //   meta: false,
@@ -122,11 +147,18 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {
-      config.resolve.alias.vue = 'vue/dist/vue.common'
+    extend(config, _ctx) {
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader',
+        include: path.resolve(__dirname, 'articles'),
+        options: {
+          mode: [FMMode.VUE_COMPONENT],
+          vue: {
+            root: 'markdown-body'
+          }
+        }
+      })
     }
   }
 }
