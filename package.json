@@ -20,8 +20,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run generate:gh-pages"
+      "pre-commit": "lint-staged"
     }
   },
   "dependencies": {
