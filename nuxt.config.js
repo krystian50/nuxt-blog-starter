@@ -65,13 +65,8 @@ module.exports = {
   ],
 
   generate: {
-    routes: getPaths(),
-    dir: 'docs'
+    routes: getPaths()
   },
-
-  router: {
-    base: '/my-tech-blog/'
-  }
 
   /*
    ** Build configuration
