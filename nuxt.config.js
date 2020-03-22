@@ -65,7 +65,8 @@ module.exports = {
   ],
 
   generate: {
-    routes: getPaths()
+    routes: getPaths(),
+    dir: '/my-tech-blog/'
   },
 
   /*
