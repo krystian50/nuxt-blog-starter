@@ -35,21 +35,27 @@ export default {
     Card
   },
 
-  async asyncData({ app }) {
-    const postsRef = app.$fireStore.collection('posts').get()
+  data: () => ({
+    posts: []
+  }),
 
-    return {
-      posts: (await postsRef).docs.map((doc) => doc.data())
-    }
-  },
+  created() {
+    const req = require.context('~/articles', false, /\.(md)$/)
 
-  mounted() {
-    console.log(this.$fireAuth)
+    req.keys().forEach((filePath) => {
+      const key = filePath.replace('./', '').replace('.md', '')
+      const { attributes } = require(`~/articles/${key}.md`)
+
+      this.posts.push({
+        id: key,
+        slug: key,
+        imgURL: attributes.imgURL,
+        uploadAt: attributes.uploadAt,
+        author: attributes.author,
+        title: attributes.title,
+        desc: attributes.desc
+      })
+    })
   }
 }
 </script>
-<style lang="scss" scoped>
-.main-banner {
-  // background-image: url('https://devmeetings.org/wp-content/uploads/2020/02/MG_8649.jpg');
-}
-</style>

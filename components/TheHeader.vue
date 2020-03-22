@@ -16,23 +16,6 @@
         Kontakt
       </b-navbar-item>
     </template>
-
-    <template slot="end">
-      <b-navbar-item tag="div">
-        <div class="buttons">
-          <a
-            v-if="!$store.getters['isLoggedIn']"
-            class="button is-light"
-            href="/login"
-          >
-            Zaloguj się
-          </a>
-          <button v-else class="button is-light" @click="logOut()">
-            Wyloguj się
-          </button>
-        </div>
-      </b-navbar-item>
-    </template>
   </b-navbar>
 </template>
 <style lang="scss" scoped>
@@ -47,6 +30,7 @@
 }
 </style>
 <script>
+// console.log(' TTEEEESTT', new Date(), process.client)
 export default {
   methods: {
     logOut() {
