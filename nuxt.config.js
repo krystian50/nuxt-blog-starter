@@ -9,6 +9,15 @@ function getPaths() {
     .map((filename) => `posty/${path.parse(filename).name}`)
 }
 
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/<repository-name>/'
+        }
+      }
+    : {}
+
 module.exports = {
   mode: 'universal',
   /*
@@ -65,9 +74,10 @@ module.exports = {
   ],
 
   generate: {
-    routes: getPaths(),
-    dir: '/my-tech-blog/'
+    routes: getPaths()
   },
+
+  ...routerBase,
 
   /*
    ** Build configuration
