@@ -1,6 +1,6 @@
-# my-tech-blog
+# nuxt-blog-starter
 
-> my-tech-blog application
+> nuxt-blog-starter application
 
 ## Build Setup
 

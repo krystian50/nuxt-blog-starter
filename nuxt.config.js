@@ -13,7 +13,7 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/nuxt-markdown-blog-starter/'
+          base: '/nuxt-blog-starter/'
         }
       }
     : {}
