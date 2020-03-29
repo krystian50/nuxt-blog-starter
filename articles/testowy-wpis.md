@@ -1,7 +1,7 @@
 ---
 title: Testowy wpis
 date: 2020-03-29T14:56:31.202Z
-imgURL: /img/logo.png
+imgURL: /img/wish-you-were-here-pink-floyd-album-ppcorn.jpg
 desc: ffff
 ---
 fff
