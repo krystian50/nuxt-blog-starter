@@ -1,6 +1,14 @@
 import fs from 'fs'
+import path from 'path'
 import FMMode from 'frontmatter-markdown-loader/mode'
-const path = require('path')
+import hljs from 'highlight.js/lib/highlight'
+import javascript from 'highlight.js/lib/languages/javascript'
+import xml from 'highlight.js/lib/languages/xml'
+import css from 'highlight.js/lib/languages/css'
+
+hljs.registerLanguage('css', css)
+hljs.registerLanguage('xml', xml)
+hljs.registerLanguage('javascript', javascript)
 
 function getPaths() {
   return fs
@@ -34,35 +42,21 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  // plugins: [{ src: '~plugins/nuxt-quill.plugin', ssr: false }],
+  plugins: [],
   // some nuxt config...
   css: [
     '@/assets/scss/main.scss',
-    'github-markdown-css'
-    // ...
+    'github-markdown-css',
+    'highlight.js/styles/github.css'
   ],
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
-    // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
-  ],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/stylelint-module'],
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    // Doc: https://buefy.github.io/#/documentation
-    'nuxt-buefy',
-    // Doc: https://axios.nuxtjs.org/usage
-    // '@nuxtjs/axios',
-    // '@nuxtjs/auth',
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
-  ],
+  modules: ['nuxt-buefy', '@nuxtjs/pwa', '@nuxtjs/dotenv'],
 
   generate: {
     routes: getPaths()
@@ -85,6 +79,18 @@ module.exports = {
           mode: [FMMode.VUE_COMPONENT],
           vue: {
             root: 'markdown-body'
+          },
+          markdownIt: {
+            html: true,
+            highlight(str, lang) {
+              if (lang && hljs.getLanguage(lang)) {
+                try {
+                  return hljs.highlight(lang, str).value
+                } catch (__) {}
+              }
+
+              return '' // use external default escaping
+            }
           }
         }
       })
