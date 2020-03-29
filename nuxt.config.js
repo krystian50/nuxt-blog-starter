@@ -9,15 +9,6 @@ function getPaths() {
     .map((filename) => `posty/${path.parse(filename).name}`)
 }
 
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/nuxt-blog-starter/'
-        }
-      }
-    : {}
-
 module.exports = {
   mode: 'universal',
   /*
@@ -77,7 +68,9 @@ module.exports = {
     routes: getPaths()
   },
 
-  ...routerBase,
+  router: {
+    base: process.env.DEPLOY_DIR
+  },
 
   /*
    ** Build configuration
