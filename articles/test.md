@@ -1,5 +1,8 @@
 ---
-title: Test
+title: 'Test '
+date: 2020-04-02T08:37:35.019Z
+imgURL: /img/wish-you-were-here-pink-floyd-album-ppcorn.jpg
+desc: Test showing loader features
 ---
 # github-markdown-css
 
@@ -8,6 +11,15 @@ title: Test
 [<img src="https://cloud.githubusercontent.com/assets/170270/5219062/f22a978c-7685-11e4-8316-af25b6c89bc0.png" width="300">](http://sindresorhus.com/github-markdown-css)
 
 ## [Demo](https://sindresorhus.com/github-markdown-css)
+
+## This is Vue component:
+
+ <b-button
+      class="publish-button"
+      type="is-success"
+      icon-left="check"
+      >Opublikuj</b-button
+    >
 
 ## Install
 
