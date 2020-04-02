@@ -1,8 +1,9 @@
 ---
-title: Kurs nuxtJS czesc 2
+title: Test post 1
 author: kfras
+date: 2020-04-02T08:06:13.717Z
+imgURL: 'https://nuxtjs.org/logos/nuxt-icon-white.png'
 desc: krotki opis kursu
-imgURL: https://nuxtjs.org/logos/nuxt-icon-white.png
 ---
 
 Asian Kung-Fu Generation (アジアン・カンフー・ジェネレーション Ajian Kanfū Jenerēshon, stylized as ASIAN KUNG-FU GENERATION) is a Japanese alternative rock band formed in Yokohama, Japan, in 1996.
