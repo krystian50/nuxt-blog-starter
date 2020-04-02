@@ -1,5 +1,5 @@
 ---
-title: Kurs NuxtJS - lista linków dla uczestników
+title: 'Kurs NuxtJS (blog), materiały dla uczestników'
 date: 2020-04-01T16:53:49.287Z
 imgURL: /img/52415990_2187997824554230_4008851645780721664_o.jpg
 desc: Lista linków na warsztat NuxtJS.
