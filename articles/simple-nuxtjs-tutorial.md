@@ -1,5 +1,8 @@
 ---
-title: Simple NuxtJS tutorial
+title: Kurs NuxtJS sklep internetowy
+date: 2020-04-02T08:06:33.073Z
+imgURL: /img/nuxt-icon-white.png
+desc: Prosty sklep internetowy oparty na NodeJS
 ---
 
 # Kurs NuxtJS - sklep internetowy
