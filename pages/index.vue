@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <h1 class="title">
-            Witaj na MasteringVueJS
+            Witaj na moim blogu
           </h1>
           <span class="subtitle">
             Dostępne artykuły poniżej
